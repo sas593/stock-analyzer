@@ -316,9 +316,8 @@ def render_stock_page():
         gate_line("P/E", a['pe'], a['pe_pass'], "×")
         if a['gates']:
             st.success("All available gatekeeper checks pass.")
-    else:
-        st.error("One or more available gatekeeper checks fail.")
-    with right:
+        else:
+            st.error("One or more available gatekeeper checks fail.")
         st.subheader("2. Automatic 100-Point Score")
         st.dataframe(pd.DataFrame({"Factor":["Earnings Growth","Business Quality","Future Opportunity","Valuation","Management & Governance","Technical Setup","Catalysts"],"Score":[a['s1'],a['s2'],a['s3'],a['s4'],a['s5'],a['s6'],a['s7']],"Maximum":[25,20,15,15,10,10,5]}), use_container_width=True, hide_index=True)
 
